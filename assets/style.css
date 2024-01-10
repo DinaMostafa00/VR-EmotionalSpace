@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+body {
+  margin: 0px auto;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem 1fr 0.2fr;
+  grid-template-areas:
+    "header"
+    "."
+    "information";
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#p5container {
+  grid-row: 1 / 4;
+  grid-column: 1 / 2;
+  background-color: white;
+  /* z-index: -100; */
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  grid-area: information;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.button { 
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #808080;
+  font-size: 1.2rem;
+  color: #000;
+  cursor: pointer;
+  width: 10%;
+  height: 7%;
+  border: none;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}
+
+.button:hover { 
+  background-color: #fb631a;
+  color: #fff; 
+}
+
+.start_button { 
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  left: 50%; /* Horizontally center the element */
+  transform: translateX(-50%); /* Center it by shifting it to the left by half its width */
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 30%;
+  height: 7%;
+  border-color: white;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}
+
+.start_button:hover { 
+  background-color: white;
+  color: #000; 
+}
