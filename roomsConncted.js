@@ -61,7 +61,8 @@ function setup() {
 
 function draw() {
   if (state === "startGraph") {
-    drawGraph();
+    // drawGraph();
+    window.parent.goToExperiment(2);
   } else if (state === "startFlowField") {
     drawFlowField();
   }
