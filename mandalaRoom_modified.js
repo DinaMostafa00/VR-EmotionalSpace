@@ -78,8 +78,6 @@ function setup() {
   frameRate(fr);
 
   createCanvas(innerWidth, innerHeight);
-  // video = createCapture(VIDEO);
-  // video.size(innerWidth, innerHeight);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
@@ -94,16 +92,6 @@ function setup() {
     stroke(0);
   }
 
-  //handpose = ml5.handpose(video, modelReady); // Commented out for automatic control
-
-  // This sets up an event that fills the global variable "predictions"
-  // with an array every time new hand poses are detected
-  //handpose.on("predict", (results) => { // Commented out for automatic control
-  // predictions = results;
-  // });
-
-  // Hide the video element, and just show the canvas
-  // video.hide();
   newArt();
 }
 
@@ -275,19 +263,6 @@ function updateMandalaSize() {
     mandalaSize -= mandalaSizeIncrement;
     if (mandalaSize <= minMandalaSize) {
       increasing = true;
-    }
-  }
-}
-
-// A function to draw ellipses over the detected keypoints
-function drawKeypoints() {
-  for (let i = 0; i < predictions.length; i += 1) {
-    const prediction = predictions[i];
-    for (let j = 0; j < prediction.landmarks.length; j += 1) {
-      const keypoint = prediction.landmarks[j];
-      fill(0, 255, 0);
-      noStroke();
-      ellipse(keypoint[0], keypoint[1], 10, 10);
     }
   }
 }
