@@ -5,6 +5,7 @@
 let player;
 let oscillator;
 let analyser;
+let leftHand, rightHand;
 
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
@@ -78,8 +79,6 @@ function setup() {
   frameRate(fr);
 
   createCanvas(innerWidth, innerHeight);
-  video = createCapture(VIDEO);
-  video.size(innerWidth, innerHeight);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
@@ -94,16 +93,8 @@ function setup() {
     stroke(0);
   }
 
-  handpose = ml5.handpose(video, modelReady);
-
-  // This sets up an event that fills the global variable "predictions"
-  // with an array every time new hand poses are detected
-  handpose.on("predict", (results) => {
-    predictions = results;
-  });
-
-  // Hide the video element, and just show the canvas
-  video.hide();
+  leftHand = document.querySelector("#leftHand");
+  rightHand = document.querySelector("#rightHand");
   newArt();
 }
 
@@ -250,73 +241,51 @@ function drawMandala(handSize) {
   array1 = newArray;
 }
 
+let time = 0;
+
 function draw() {
+  updateMandalaSize();
+
   background(0);
-  // We can call both functions to draw all keypoints and the skeletons
-  drawKeypoints();
 
-  if (predictions.length > 0 && predictions[0].handInViewConfidence > 0.8) {
-    let landmarks = predictions[0].landmarks;
-    let x1 = predictions[0].boundingBox.topLeft[0];
-    let x2 = predictions[0].boundingBox.bottomRight[0];
-    let w = x2 - x1;
-
-    // Calculate the distance between two key points (e.g., thumb tip and index tip)
-    let thumbX = landmarks[4][0];
-    let thumbY = landmarks[4][1];
-    let indexX = landmarks[8][0];
-    let indexY = landmarks[8][1];
-
-    let currentThumbX = thumbX;
-    let currentIndexX = indexX;
-
-    let currentThumbY = thumbY;
-    let currentIndexY = indexY;
-
-    currentIndexX += (indexX - currentIndexX) / 4;
-    currentThumbX += (thumbX - currentThumbX) / 4;
-
-    currentIndexY += (indexY - currentIndexY) / 4;
-    currentThumbY += (thumbY - currentThumbY) / 4;
-
-    let distance = dist(
-      currentThumbX,
-      currentThumbY,
-      currentIndexX,
-      currentIndexY
-    );
-
-    let minDist = 0.2;
-    let maxDist = 1.5;
-    let minVol = 1;
-    let maxVol = 30;
-
-    // Map the distance to control the size of the mandala
-    mappedDistance = map(distance / w, 0, 1, 0.2, 2.0); // Adjust the range as needed
-
-    if (mappedDistance < 0.8) {
-      mandalaSize = Math.max(mandalaSize - 0.006, minDist);
-      volume = Math.max(volume - 0.5, minVol);
-      player.volume.rampTo(volume, 0.1);
-    } else {
-      mandalaSize = Math.min(mandalaSize + 0.006, maxDist);
-      volume = Math.min(volume + 0.5, maxVol);
-      player.volume.rampTo(volume, 0.1);
-    }
-  }
-  // Call the mandalaArt function with the hand size
   drawMandala(mandalaSize);
 }
 
-// A function to draw ellipses over the detected keypoints
-function drawKeypoints() {
-  for (let i = 0; i < predictions.length; i += 1) {
-    const prediction = predictions[i];
-    for (let j = 0; j < prediction.landmarks.length; j += 1) {
-      const keypoint = prediction.landmarks[j];
-      fill(0, 255, 0);
-      noStroke();
-      ellipse(keypoint[0], keypoint[1], 10, 10);
-    }
+let minMandalaSize = 0.1;
+let maxMandalaSize = 1.5;
+let mandalaSizeIncrement = 0.01;
+let increasing = true;
+
+function updateMandalaSize() {
+  if (leftHand && rightHand) {
+    // Calculate distance between controllers
+    let distance = calculateDistance(
+      leftHand.object3D.position,
+      rightHand.object3D.position
+    );
+
+    // Map this distance to mandala size
+    mandalaSize = mapDistanceToSize(distance);
   }
+}
+
+function calculateDistance(pos1, pos2) {
+  // Calculate the distance between two positions
+  return pos1.distanceTo(pos2);
+}
+
+// Define your minimum and maximum controller distances
+let minControllerDistance = 0; // minimum distance between controllers
+let maxControllerDistance = 2; // maximum distance between controllers
+
+function mapDistanceToSize(distance) {
+  // Linear mapping: (distance - minDistance) / (maxDistance - minDistance) * (maxSize - minSize) + minSize
+  let size =
+    ((distance - minControllerDistance) /
+      (maxControllerDistance - minControllerDistance)) *
+      (maxMandalaSize - minMandalaSize) +
+    minMandalaSize;
+
+  // Constrain the size to the min and max mandala size
+  return constrain(size, minMandalaSize, maxMandalaSize);
 }

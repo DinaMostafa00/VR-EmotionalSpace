@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emotional Space</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!-- Add A-Frame -->
     <script src="https://unpkg.com/tone" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
     <script src="assets/script.js" defer></script>
@@ -18,14 +16,6 @@
     </button>
     <button id="endButton" class="button">End the Experience</button>
     <button id="soundButton" class="button">Play Sound</button>
-
-    <!-- A-Frame VR Scene -->
-    <a-scene>
-      <a-entity id="leftHand" hand-controls="hand: left"></a-entity>
-      <a-entity id="rightHand" hand-controls="hand: right"></a-entity>
-      <!-- Add more A-Frame elements as needed -->
-    </a-scene>
-
     <div id="p5container"></div>
   </body>
 </html>
