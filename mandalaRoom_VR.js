@@ -7,6 +7,14 @@ let oscillator;
 let analyser;
 let leftHand, rightHand;
 
+let time = 0;
+
+let minMandalaSize = 0.1;
+let maxMandalaSize = 1.5;
+let mandalaSizeIncrement = 0.01;
+let increasing = true;
+
+
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
 let rate = 3; //rate of pedal change 0.5
@@ -58,6 +66,7 @@ window.addEventListener("load", () => {
 });
 
 const startButton = window.parent.document.getElementById("soundButton");
+document.getElementById("exitVrButton").addEventListener("click", exitVR);
 
 startButton.style.display = "block";
 
@@ -241,7 +250,7 @@ function drawMandala(handSize) {
   array1 = newArray;
 }
 
-let time = 0;
+
 
 function draw() {
   updateMandalaSize();
@@ -251,10 +260,6 @@ function draw() {
   drawMandala(mandalaSize);
 }
 
-let minMandalaSize = 0.1;
-let maxMandalaSize = 1.5;
-let mandalaSizeIncrement = 0.01;
-let increasing = true;
 
 function updateMandalaSize() {
   if (leftHand && rightHand) {
@@ -288,4 +293,16 @@ function mapDistanceToSize(distance) {
 
   // Constrain the size to the min and max mandala size
   return constrain(size, minMandalaSize, maxMandalaSize);
+}
+
+function exitVR() {
+  if (AFRAME.utils.device.checkHeadsetConnected()) {
+    // Check if the scene is in VR mode
+    if (AFRAME.scenes[0].is("vr-mode")) {
+      // Exit VR mode
+      AFRAME.scenes[0].exitVR();
+    }
+  } else {
+    console.log("No VR headset detected or VR mode is not active.");
+  }
 }

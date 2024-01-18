@@ -20,13 +20,17 @@
     <button id="soundButton" class="button">Play Sound</button>
     <button id="exitVrButton">Exit VR</button>
 
-    <!-- A-Frame VR Scene -->
     <a-scene>
-      <a-entity id="leftHand" hand-controls="hand: left"></a-entity>
-      <a-entity id="rightHand" hand-controls="hand: right"></a-entity>
-      <!-- Add more A-Frame elements as needed -->
+      <a-plane
+        id="mandalaPlane"
+        position="0 1.5 -3"
+        rotation="0 0 0"
+        width="4"
+        height="4"
+      >
+      </a-plane>
+      <!-- Other A-Frame entities... -->
     </a-scene>
-
-    <div id="p5container"></div>
+    <script src="mandalaRoom_VR.js"></script>
   </body>
 </html>
