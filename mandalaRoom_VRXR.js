@@ -81,7 +81,7 @@ function preload() {
 function setup() {
   frameRate(fr);
 
-  createCanvas(innerWidth, innerHeight);
+  // createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
