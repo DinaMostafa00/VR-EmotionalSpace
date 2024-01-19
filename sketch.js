@@ -100,6 +100,8 @@ let x1,
 //   endButton.style.display = "none";
 // });
 
+//deleted area here
+
 function preload() {
   createVRCanvas();
 }
