@@ -95,10 +95,10 @@ let x1,
 
 // endButton.style.display = "block";
 
-endButton.addEventListener("click", () => {
-  window.parent.goToExperiment(0);
-  endButton.style.display = "none";
-});
+// endButton.addEventListener("click", () => {
+//   window.parent.goToExperiment(0);
+//   endButton.style.display = "none";
+// });
 
 function preload() {
   createVRCanvas();
