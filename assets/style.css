@@ -23,16 +23,16 @@ body {
   /* z-index: -100; */
 }
 
-main {
+/* main {
   display: flex;
   flex-direction: row;
   padding: 1em;
   grid-area: information;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 2;
-}
+} */
 
-.button { 
+.button {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -48,17 +48,19 @@ main {
   transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
-.button:hover { 
+.button:hover {
   background-color: #fb631a;
-  color: #fff; 
+  color: #fff;
 }
 
-.start_button { 
+.start_button {
   display: none;
   position: fixed;
   bottom: 90px;
   left: 50%; /* Horizontally center the element */
-  transform: translateX(-50%); /* Center it by shifting it to the left by half its width */
+  transform: translateX(
+    -50%
+  ); /* Center it by shifting it to the left by half its width */
   padding: 10px 20px;
   background-color: transparent;
   color: #fff;
@@ -70,7 +72,7 @@ main {
   transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
-.start_button:hover { 
+.start_button:hover {
   background-color: white;
-  color: #000; 
+  color: #000;
 }

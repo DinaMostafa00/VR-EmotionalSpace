@@ -5,14 +5,6 @@
 let player;
 let oscillator;
 let analyser;
-let leftHand, rightHand;
-
-let time = 0;
-
-let minMandalaSize = 0.1;
-let maxMandalaSize = 1.5;
-let mandalaSizeIncrement = 0.01;
-let increasing = true;
 
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
@@ -65,7 +57,6 @@ window.addEventListener("load", () => {
 });
 
 const startButton = window.parent.document.getElementById("soundButton");
-document.getElementById("exitVrButton").addEventListener("click", exitVR);
 
 startButton.style.display = "block";
 
@@ -82,6 +73,10 @@ endButton.addEventListener("click", () => {
   window.parent.goToExperiment(0);
   endButton.style.display = "none";
 });
+
+function preload() {
+  createVRCanvas();
+}
 
 function setup() {
   frameRate(fr);
@@ -247,6 +242,8 @@ function drawMandala(handSize) {
   array1 = newArray;
 }
 
+let time = 0;
+
 function draw() {
   updateMandalaSize();
 
@@ -255,36 +252,21 @@ function draw() {
   drawMandala(mandalaSize);
 }
 
+let minMandalaSize = 0.1;
+let maxMandalaSize = 1.5;
+let mandalaSizeIncrement = 0.01;
+let increasing = true;
+
 function updateMandalaSize() {
-  if (leftHand && rightHand) {
-    // Calculate distance between controllers
-    let distance = calculateDistance(
-      leftHand.object3D.position,
-      rightHand.object3D.position
-    );
-
-    // Map this distance to mandala size
-    mandalaSize = mapDistanceToSize(distance);
+  if (increasing) {
+    mandalaSize += mandalaSizeIncrement;
+    if (mandalaSize >= maxMandalaSize) {
+      increasing = false;
+    }
+  } else {
+    mandalaSize -= mandalaSizeIncrement;
+    if (mandalaSize <= minMandalaSize) {
+      increasing = true;
+    }
   }
-}
-
-function calculateDistance(pos1, pos2) {
-  // Calculate the distance between two positions
-  return pos1.distanceTo(pos2);
-}
-
-// Define your minimum and maximum controller distances
-let minControllerDistance = 0; // minimum distance between controllers
-let maxControllerDistance = 2; // maximum distance between controllers
-
-function mapDistanceToSize(distance) {
-  // Linear mapping: (distance - minDistance) / (maxDistance - minDistance) * (maxSize - minSize) + minSize
-  let size =
-    ((distance - minControllerDistance) /
-      (maxControllerDistance - minControllerDistance)) *
-      (maxMandalaSize - minMandalaSize) +
-    minMandalaSize;
-
-  // Constrain the size to the min and max mandala size
-  return constrain(size, minMandalaSize, maxMandalaSize);
 }

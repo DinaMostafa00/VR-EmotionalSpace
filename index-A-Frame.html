@@ -4,12 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emotional Space</title>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script> -->
-    <script
-      src="https://unpkg.com/p5.xr@0.3.2-rc.3/dist/p5xr.js"
-      defer
-    ></script>
-
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- Add A-Frame -->
     <script src="https://unpkg.com/tone" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
     <script src="assets/script.js" defer></script>
@@ -22,7 +18,19 @@
     </button>
     <button id="endButton" class="button">End the Experience</button>
     <button id="soundButton" class="button">Play Sound</button>
-    <!-- <div id="p5container"></div> -->
-    <script src="mandalaRoom_VRXR.js"></script>
+    <button id="exitVrButton">Exit VR</button>
+
+    <a-scene>
+      <a-plane
+        id="mandalaPlane"
+        position="0 1.5 -3"
+        rotation="0 0 0"
+        width="4"
+        height="4"
+      >
+      </a-plane>
+      <!-- Other A-Frame entities... -->
+    </a-scene>
+    <script src="mandalaRoom_VR.js"></script>
   </body>
 </html>
