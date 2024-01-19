@@ -34,6 +34,12 @@ function goToExperiment(index) {
   p5script.defer = true;
   bodyElement.appendChild(p5script);
 
+  const p5xrScript = document.createElement("script");
+  p5xrScript.type = "text/javascript";
+  p5xrScript.src = "https://unpkg.com/p5.xr@0.3.2-rc.3/dist/p5xr.js";
+  p5xrScript.defer = true;
+  bodyElement.appendChild(p5xrScript);
+
   const toneScript = document.createElement("script");
   toneScript.type = "text/javascript";
   toneScript.src = "https://unpkg.com/tone";
@@ -51,12 +57,6 @@ function goToExperiment(index) {
   codeScript.src = experiment.file;
   codeScript.defer = true;
   bodyElement.appendChild(codeScript);
-
-  const p5xrScript = document.createElement("script");
-  p5xrScript.type = "text/javascript";
-  p5xrScript.src = "https://unpkg.com/p5.xr@0.3.2-rc.3/dist/p5xr.js";
-  p5xrScript.defer = true;
-  bodyElement.appendChild(p5xrScript);
 
   const styleLink = document.createElement("link");
   styleLink.rel = "stylesheet";
