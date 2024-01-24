@@ -151,7 +151,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(width / 2, height / 2, -2000);
+  translate(width / 2, height / 2, 1000);
 
   rotateX(frameCount * 0.001);
   rotateY(frameCount * 0.001);
