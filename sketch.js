@@ -254,18 +254,15 @@ function drawMandala(handSize) {
 // let time = 0;
 
 function draw() {
+  updateMandalaSize();
   background(0);
 
   if (viewerPosition.z < -7) {
     viewerPosition.z = 7;
   }
   setViewerPosition(viewerPosition.x, viewerPosition.y, viewerPosition.z);
-  
-  sticky(ture);
-  updateMandalaSize();
 
   drawMandala(mandalaSize);
-  noSticky();
 }
 
 let minMandalaSize = 0.1;
