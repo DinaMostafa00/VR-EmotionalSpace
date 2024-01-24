@@ -76,8 +76,6 @@ let x1,
 
 //deleted area here
 
-let z = 0;
-let viewerPosition;
 
 function preload() {
   createVRCanvas();
@@ -100,7 +98,6 @@ function setup() {
     alph = 100;
     stroke(0);
   }
-  viewerPosition = createVector(0, 0, 0);
 
   newArt();
 }
@@ -154,9 +151,6 @@ function drawMandala(handSize) {
   newArray = [];
   push();
   translate(width / 2, height / 2, -900);
-
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
@@ -256,11 +250,6 @@ function drawMandala(handSize) {
 function draw() {
   updateMandalaSize();
   background(0);
-
-  if (viewerPosition.z < -7) {
-    viewerPosition.z = 7;
-  }
-  setViewerPosition(viewerPosition.x, viewerPosition.y, viewerPosition.z);
 
   drawMandala(mandalaSize);
 }
