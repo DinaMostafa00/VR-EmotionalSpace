@@ -1,29 +1,3 @@
-// let rot = 0;
-// let rotSpeed = 0.1;
-
-// function preload() {
-//   createVRCanvas();
-// }
-
-// function setup() {
-//   setVRBackgroundColor(255);
-// }
-
-// function calculate() {}
-
-// function draw() {
-//   rot += rotSpeed;
-//   rotateY(rot);
-//   fill(100, 240, 100);
-//   box(20);
-//   translate(-20, 0, 0);
-//   fill(240, 100, 100);
-//   box(20);
-//   translate(40, 0, 0);
-//   fill(100, 100, 240);
-//   box(20);
-// }
-
 ////////CITATIONS////////
 // Mandala art video link : https://www.youtube.com/watch?v=k28xNx-Q3ys
 // MP3 track website : https://pixabay.com/sound-effects/search/mp3/
@@ -176,6 +150,10 @@ function drawMandala(handSize) {
   newArray = [];
   push();
   translate(width / 2, height / 2);
+
+  translate(0, 0, -200);
+  rotateX(45);
+  rotateY(45);
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
