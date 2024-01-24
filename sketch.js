@@ -150,10 +150,11 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(width / 2, height / 2, -700);
+  setViewerPosition(0, 0, -700);
+  translate(width / 2, height / 2);
 
-  rotateX(frameCount * 0.1);
-  rotateY(frameCount * 0.1);
+  rotateX(frameCount * 0.001);
+  rotateY(frameCount * 0.001);
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
