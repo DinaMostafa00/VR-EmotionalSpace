@@ -149,7 +149,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(width / 2, height / 2, 500);
+  translate(width / 2, height / 2, -900);
 
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
@@ -250,11 +250,13 @@ function drawMandala(handSize) {
 // let time = 0;
 
 function draw() {
+  sticky(ture);
   updateMandalaSize();
 
   background(0);
 
   drawMandala(mandalaSize);
+  noSticky();
 }
 
 let minMandalaSize = 0.1;
