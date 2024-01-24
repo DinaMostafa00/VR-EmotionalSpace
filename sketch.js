@@ -82,6 +82,7 @@ function preload() {
 }
 
 function setup() {
+  setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
 
   //   createCanvas(innerWidth, innerHeight);
@@ -150,8 +151,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  setViewerPosition(0, 0, -700);
-  translate(width / 2, height / 2);
+  translate(width / 2, height / 2, -700);
 
   rotateX(frameCount * 0.001);
   rotateY(frameCount * 0.001);
@@ -253,7 +253,6 @@ function drawMandala(handSize) {
 
 function draw() {
   updateMandalaSize();
-  background(0);
 
   drawMandala(mandalaSize);
 }
