@@ -258,7 +258,7 @@ function drawMandala(handSize) {
 function draw() {
   setViewerPosition(0, 0, 600);
   graphics.push();
-  graphics.translate()
+  graphics.translate(300, 300);
   graphics.updateMandalaSize();
   graphics.drawMandala(mandalaSize);
   graphics.pop();
