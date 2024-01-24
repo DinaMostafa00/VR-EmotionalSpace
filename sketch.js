@@ -76,6 +76,9 @@ let x1,
 
 //deleted area here
 
+let z = 0;
+let viewerPosition;
+
 function preload() {
   createVRCanvas();
 }
@@ -97,6 +100,7 @@ function setup() {
     alph = 100;
     stroke(0);
   }
+  viewerPosition = createVector(0, 0, 0);
 
   newArt();
 }
@@ -250,10 +254,15 @@ function drawMandala(handSize) {
 // let time = 0;
 
 function draw() {
+  background(0);
+
+  if (viewerPosition.z < -7) {
+    viewerPosition.z = 7;
+  }
+  setViewerPosition(viewerPosition.x, viewerPosition.y, viewerPosition.z);
+  
   sticky(ture);
   updateMandalaSize();
-
-  background(0);
 
   drawMandala(mandalaSize);
   noSticky();
