@@ -76,6 +76,7 @@ let x1,
 
 //deleted area here
 
+let graphics;
 
 function preload() {
   createVRCanvas();
@@ -85,6 +86,8 @@ function setup() {
   smooth();
   setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
+
+  graphics = createGraphics(600, 600);
 
   //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
@@ -152,7 +155,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(windowWidth / 2, windowHeight / 2, 1000);
+  translate(windowWidth / 2, windowHeight / 2, -700);
 
   rotateX(frameCount * 0.001);
   rotateY(frameCount * 0.001);
@@ -253,9 +256,12 @@ function drawMandala(handSize) {
 // let time = 0;
 
 function draw() {
-  updateMandalaSize();
-
-  drawMandala(mandalaSize);
+  setViewerPosition(0, 0, 600);
+  graphics.push();
+  graphics.translate()
+  graphics.updateMandalaSize();
+  graphics.drawMandala(mandalaSize);
+  graphics.pop();
 }
 
 let minMandalaSize = 0.1;
