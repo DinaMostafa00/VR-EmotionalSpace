@@ -82,6 +82,7 @@ function preload() {
 }
 
 function setup() {
+  smooth();
   setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
 
@@ -151,7 +152,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(width / 2, height / 2, 1000);
+  translate(windowWidth / 2, windowHeight / 2, 1000);
 
   rotateX(frameCount * 0.001);
   rotateY(frameCount * 0.001);
