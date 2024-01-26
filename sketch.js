@@ -239,6 +239,7 @@ function setup() {
 }
 
 function draw() {
+  translate(0, 0, -700);
   drawFlowField();
 }
 
@@ -246,6 +247,7 @@ function drawFlowField() {
   for (let i = 0; i < num; i++) {
     particles.push(createVector(random(width), random(height)));
   }
+
   stroke(random(200, 255), random(0, 20), random(20, 50));
 
   background(0, 10);
