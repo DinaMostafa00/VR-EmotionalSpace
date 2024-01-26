@@ -39,7 +39,6 @@ function preload() {
 }
 
 function setup() {
-  smooth();
   createCanvas(400, 400, WEBGL);
   setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
