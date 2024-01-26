@@ -39,7 +39,6 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 400, WEBGL);
   setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
 
@@ -210,6 +209,7 @@ function draw() {
   // graphics.updateMandalaSize();
   // graphics.drawMandala(mandalaSize);
   // graphics.pop();
+  fill(255, 55, 0);
   box(50); // Size of the box
 }
 
