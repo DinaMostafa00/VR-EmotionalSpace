@@ -50,12 +50,8 @@ function setup() {
   } else {
     brt = 70;
     alph = 100;
-    stroke(200);
+    stroke(0);
   }
-
-  // translate(0, 0, -700);
-  // updateMandalaSize();
-  // drawMandala(mandalaSize);
 
   newArt();
 }
