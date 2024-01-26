@@ -241,6 +241,7 @@ function setup() {
       createVector(random(width), random(height), random(-700, 700))
     );
   }
+  setVRBackgroundColor(100, 100, 100);
 }
 
 function draw() {
