@@ -199,11 +199,13 @@ function drawMandala(handSize) {
 }
 
 function draw() {
-  updateMandalaSize();
+  // updateMandalaSize();
 
   background(0);
+  fill(50, 0, 255);
+  box(50);
 
-  drawMandala(mandalaSize);
+  // drawMandala(mandalaSize);
 }
 
 let minMandalaSize = 0.1;
