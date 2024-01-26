@@ -102,8 +102,8 @@ function drawMandala(handSize) {
   push();
   translate(width / 2, height / 2, -700);
 
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
+  // rotateX(frameCount * 0.01);
+  // rotateY(frameCount * 0.01);
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
