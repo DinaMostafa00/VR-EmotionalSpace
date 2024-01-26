@@ -100,7 +100,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(width / 2, height / 2);
+  translate(500, 500);
 
   // rotateX(frameCount * 0.01);
   // rotateY(frameCount * 0.01);
@@ -205,7 +205,7 @@ function draw() {
 }
 
 let minMandalaSize = 0.1;
-let maxMandalaSize = 1.5;
+let maxMandalaSize = 1.0;
 let mandalaSizeIncrement = 0.01;
 let increasing = true;
 
