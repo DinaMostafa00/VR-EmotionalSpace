@@ -4,7 +4,6 @@
 
 let player;
 
-
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
 let rate = 3; //rate of pedal change 0.5
@@ -14,14 +13,6 @@ let chance = 0.1; //chance in 10 of reversal 0.1
 let array1 = [];
 let newArray = [];
 let paused = false;
-
-// let handpose;
-// let video;
-// let predictions = [];
-
-// let volume = 20;
-
-// let mappedDistance;
 
 let x1D, x2D, y2D, x3D, y3D, x4D;
 let x1,
@@ -40,40 +31,6 @@ let x1,
   maxY3,
   ped,
   lay;
-
-// window.addEventListener("load", () => {
-//   player = new Tone.Player("assets/track2.mp3");
-//   oscillator = new Tone.Oscillator(440, "sine").toDestination();
-
-//   player.volume.value = volume;
-
-//   analyser = new Tone.Analyser("fft", 4096);
-
-//   oscillator.connect(analyser);
-//   oscillator.toDestination();
-//   player.connect(analyser);
-//   player.toDestination();
-// });
-
-// const startButton = window.parent.document.getElementById("soundButton");
-
-// startButton.style.display = "block";
-
-// startButton.addEventListener("click", () => {
-//   player.start();
-//   startButton.style.display = "none";
-// });
-
-// const endButton = window.parent.document.getElementById("endButton");
-
-// endButton.style.display = "block";
-
-// endButton.addEventListener("click", () => {
-//   window.parent.goToExperiment(0);
-//   endButton.style.display = "none";
-// });
-
-//deleted area here
 
 let graphics;
 
@@ -105,10 +62,6 @@ function setup() {
 
   newArt();
 }
-
-// function modelReady() {
-//   console.log("Model ready!");
-// }
 
 function newArt() {
   array1 = [];
