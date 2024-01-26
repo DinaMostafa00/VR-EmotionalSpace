@@ -54,7 +54,6 @@ function setup() {
   }
 
   newArt();
-  setVRBackgroundColor(0, 100, 100);
 }
 
 function newArt() {
