@@ -53,9 +53,9 @@ function setup() {
     stroke(200);
   }
 
-  translate(0, 0, -700);
-  updateMandalaSize();
-  drawMandala(mandalaSize);
+  // translate(0, 0, -700);
+  // updateMandalaSize();
+  // drawMandala(mandalaSize);
 
   newArt();
 }
@@ -203,9 +203,9 @@ function drawMandala(handSize) {
 }
 
 function draw() {
-  // translate(0, 0, -700);
-  // updateMandalaSize();
-  // drawMandala(mandalaSize);
+  translate(0, 0, -700);
+  updateMandalaSize();
+  drawMandala(mandalaSize);
 }
 
 let minMandalaSize = 0.1;
