@@ -200,10 +200,12 @@ function drawMandala(handSize) {
 
 function draw() {
   // updateMandalaSize();
+  // background(0);
+  translate(0, 0, 10);
+  rotateX(10);
+  rotateY(20);
 
-  background(0);
-  fill(50, 0, 255);
-  box(50);
+  box(5);
 
   // drawMandala(mandalaSize);
 }
