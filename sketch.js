@@ -106,8 +106,8 @@ function drawMandala(handSize) {
   push();
   translate(windowWidth / 2, windowHeight / 2, -700);
 
-  rotateX(frameCount * 0.001);
-  rotateY(frameCount * 0.001);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
@@ -203,14 +203,13 @@ function drawMandala(handSize) {
 }
 
 function draw() {
-  // setViewerPosition(0, 0, 600);
-  // graphics.push();
-  // graphics.translate(300, 300);
-  // graphics.updateMandalaSize();
-  // graphics.drawMandala(mandalaSize);
-  // graphics.pop();
+  setViewerPosition(0, 0, 600);
+  translate(300, 300);
+  updateMandalaSize();
+  drawMandala(mandalaSize);
+
   fill(255, 55, 0);
-  box(50); // Size of the box
+  box(50);
 }
 
 let minMandalaSize = 0.1;
