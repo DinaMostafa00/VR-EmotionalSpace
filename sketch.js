@@ -37,7 +37,7 @@ function preload() {
 
 function setup() {
   frameRate(fr);
-  setVRBackgroundColor(200, 0, 150);
+  setVRBackgroundColor(0, 0, 150);
   //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
@@ -52,6 +52,10 @@ function setup() {
     alph = 100;
     stroke(0);
   }
+
+  translate(0, 0, -700);
+  updateMandalaSize();
+  drawMandala(mandalaSize);
 
   newArt();
 }
@@ -199,9 +203,9 @@ function drawMandala(handSize) {
 }
 
 function draw() {
-  translate(0, 0, -700);
-  updateMandalaSize();
-  drawMandala(mandalaSize);
+  // translate(0, 0, -700);
+  // updateMandalaSize();
+  // drawMandala(mandalaSize);
 }
 
 let minMandalaSize = 0.1;
