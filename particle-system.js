@@ -286,7 +286,6 @@
 ////
 AFRAME.registerComponent("particle-system", {
   init: function () {
-    // Initialize particle entities
     this.particles = [];
     for (let i = 0; i < 1000; i++) {
       let particle = document.createElement("a-sphere");
@@ -301,11 +300,13 @@ AFRAME.registerComponent("particle-system", {
     }
   },
   tick: function () {
-    // Update particles every frame
     for (let particle of this.particles) {
       let position = particle.getAttribute("position");
-      // Modify position here based on your algorithm
-      // Implement a 3D noise function or similar logic for movement
+      position.y += 0.05; // Move particle upwards
+      if (position.y > 10) {
+        // Reset particle to the bottom
+        position.y = -10;
+      }
       particle.setAttribute("position", position);
     }
   },
