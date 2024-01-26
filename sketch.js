@@ -104,7 +104,11 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
+<<<<<<< HEAD
   translate(windowWidth / 2, windowHeight / 2, -700);
+=======
+  translate(width / 2, height / 2, -200);
+>>>>>>> parent of 6b8c043 (change 1)
 
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
