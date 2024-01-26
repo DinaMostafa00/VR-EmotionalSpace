@@ -3,6 +3,8 @@
 // MP3 track website : https://pixabay.com/sound-effects/search/mp3/
 
 let player;
+// let oscillator;
+// let analyser;
 
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
@@ -13,6 +15,14 @@ let chance = 0.1; //chance in 10 of reversal 0.1
 let array1 = [];
 let newArray = [];
 let paused = false;
+
+// let handpose;
+// let video;
+// let predictions = [];
+
+// let volume = 20;
+
+// let mappedDistance;
 
 let x1D, x2D, y2D, x3D, y3D, x4D;
 let x1,
@@ -32,14 +42,45 @@ let x1,
   ped,
   lay;
 
-let graphics;
+// window.addEventListener("load", () => {
+//   player = new Tone.Player("assets/track2.mp3");
+//   oscillator = new Tone.Oscillator(440, "sine").toDestination();
+
+//   player.volume.value = volume;
+
+//   analyser = new Tone.Analyser("fft", 4096);
+
+//   oscillator.connect(analyser);
+//   oscillator.toDestination();
+//   player.connect(analyser);
+//   player.toDestination();
+// });
+
+// const startButton = window.parent.document.getElementById("soundButton");
+
+// startButton.style.display = "block";
+
+// startButton.addEventListener("click", () => {
+//   player.start();
+//   startButton.style.display = "none";
+// });
+
+// const endButton = window.parent.document.getElementById("endButton");
+
+// endButton.style.display = "block";
+
+// endButton.addEventListener("click", () => {
+//   window.parent.goToExperiment(0);
+//   endButton.style.display = "none";
+// });
+
+//deleted area here
 
 function preload() {
   createVRCanvas();
 }
 
 function setup() {
-  setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
 
   //   createCanvas(innerWidth, innerHeight);
@@ -59,6 +100,10 @@ function setup() {
 
   newArt();
 }
+
+// function modelReady() {
+//   console.log("Model ready!");
+// }
 
 function newArt() {
   array1 = [];
@@ -104,11 +149,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-<<<<<<< HEAD
-  translate(windowWidth / 2, windowHeight / 2, -700);
-=======
-  translate(width / 2, height / 2, -200);
->>>>>>> parent of 6b8c043 (change 1)
+  translate(width / 2, height / 2, -700);
 
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
@@ -206,14 +247,14 @@ function drawMandala(handSize) {
   array1 = newArray;
 }
 
-function draw() {
-  setViewerPosition(0, 0, 600);
-  translate(300, 300);
-  updateMandalaSize();
-  drawMandala(mandalaSize);
+// let time = 0;
 
-  fill(255, 55, 0);
-  box(50);
+function draw() {
+  updateMandalaSize();
+
+  background(0);
+
+  drawMandala(mandalaSize);
 }
 
 let minMandalaSize = 0.1;
