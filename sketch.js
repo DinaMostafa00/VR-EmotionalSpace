@@ -40,9 +40,9 @@ function preload() {
 
 function setup() {
   smooth();
+  createCanvas(400, 400, WEBGL);
   setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
-
   graphics = createGraphics(600, 600);
 
   //   createCanvas(innerWidth, innerHeight);
@@ -205,15 +205,14 @@ function drawMandala(handSize) {
   array1 = newArray;
 }
 
-// let time = 0;
-
 function draw() {
-  setViewerPosition(0, 0, 600);
-  graphics.push();
-  graphics.translate(300, 300);
-  graphics.updateMandalaSize();
-  graphics.drawMandala(mandalaSize);
-  graphics.pop();
+  // setViewerPosition(0, 0, 600);
+  // graphics.push();
+  // graphics.translate(300, 300);
+  // graphics.updateMandalaSize();
+  // graphics.drawMandala(mandalaSize);
+  // graphics.pop();
+  box(50); // Size of the box
 }
 
 let minMandalaSize = 0.1;
