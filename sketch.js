@@ -43,7 +43,6 @@ function setup() {
   createCanvas(400, 400, WEBGL);
   setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
-  graphics = createGraphics(600, 600);
 
   //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
