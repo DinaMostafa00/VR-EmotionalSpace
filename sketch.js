@@ -1,29 +1,3 @@
-// let rot = 0;
-// let rotSpeed = 0.1;
-
-// function preload() {
-//   createVRCanvas();
-// }
-
-// function setup() {
-//   setVRBackgroundColor(255);
-// }
-
-// function calculate() {}
-
-// function draw() {
-//   rot += rotSpeed;
-//   rotateY(rot);
-//   fill(100, 240, 100);
-//   box(20);
-//   translate(-20, 0, 0);
-//   fill(240, 100, 100);
-//   box(20);
-//   translate(40, 0, 0);
-//   fill(100, 100, 240);
-//   box(20);
-// }
-
 ////////CITATIONS////////
 // Mandala art video link : https://www.youtube.com/watch?v=k28xNx-Q3ys
 // MP3 track website : https://pixabay.com/sound-effects/search/mp3/
@@ -101,12 +75,18 @@ let x1,
 
 //deleted area here
 
+let graphics;
+
 function preload() {
   createVRCanvas();
 }
 
 function setup() {
+  smooth();
+  setVRBackgroundColor(0, 0, 0);
   frameRate(fr);
+
+  graphics = createGraphics(600, 600);
 
   //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
@@ -174,7 +154,10 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(width / 2, height / 2);
+  translate(windowWidth / 2, windowHeight / 2, -700);
+
+  rotateX(frameCount * 0.001);
+  rotateY(frameCount * 0.001);
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
@@ -272,11 +255,12 @@ function drawMandala(handSize) {
 // let time = 0;
 
 function draw() {
-  updateMandalaSize();
-
-  background(0);
-
-  drawMandala(mandalaSize);
+  setViewerPosition(0, 0, 600);
+  graphics.push();
+  graphics.translate(300, 300);
+  graphics.updateMandalaSize();
+  graphics.drawMandala(mandalaSize);
+  graphics.pop();
 }
 
 let minMandalaSize = 0.1;
