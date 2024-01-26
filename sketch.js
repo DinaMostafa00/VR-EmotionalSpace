@@ -29,8 +29,7 @@
 // MP3 track website : https://pixabay.com/sound-effects/search/mp3/
 
 let player;
-// let oscillator;
-// let analyser;
+
 
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
