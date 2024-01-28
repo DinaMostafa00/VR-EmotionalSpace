@@ -381,7 +381,7 @@ AFRAME.registerComponent("particle-system", {
     this.center = { x: 0, y: 0, z: 0 }; // Central point of the system
     for (let i = 0; i < 1000; i++) {
       let particle = document.createElement("a-sphere");
-      particle.setAttribute("radius", 0.05);
+      particle.setAttribute("radius", 0.2);
       let position = {
         x: (Math.random() - 0.5) * 2,
         y: (Math.random() - 0.5) * 2,
@@ -424,9 +424,9 @@ AFRAME.registerComponent("particle-system", {
       }
 
       // Move the particle along the direction vector
-      position.x += direction.x * 0.05;
-      position.y += direction.y * 0.05;
-      position.z += direction.z * 0.05;
+      position.x += direction.x * 0.02;
+      position.y += direction.y * 0.02;
+      position.z += direction.z * 0.02;
 
       // Update the particle's position
       particle.setAttribute("position", position);
