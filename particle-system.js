@@ -313,3 +313,33 @@ AFRAME.registerComponent("particle-system", {
 });
 
 ////
+// document.addEventListener("DOMContentLoaded", () => {
+//   const mandala = document.getElementById("mandala");
+
+//   const numRings = 5;
+//   const numElementsPerRing = 12;
+//   const ringRadiusIncrement = 0.5;
+
+//   for (let ring = 0; ring < numRings; ring++) {
+//     const ringRadius = ring * ringRadiusIncrement;
+//     for (let i = 0; i < numElementsPerRing; i++) {
+//       let theta = (i / numElementsPerRing) * Math.PI * 2;
+//       let x = ringRadius * Math.cos(theta);
+//       let y = ringRadius * Math.sin(theta);
+
+//       let element = document.createElement("a-box");
+//       element.setAttribute("position", { x: x, y: y, z: 0 });
+//       element.setAttribute("rotation", {
+//         x: 0,
+//         y: 0,
+//         z: theta * (180 / Math.PI),
+//       });
+//       element.setAttribute("color", "#FFC65D");
+//       element.setAttribute("depth", 0.1);
+//       element.setAttribute("height", 0.1);
+//       element.setAttribute("width", 0.1);
+
+//       mandala.appendChild(element);
+//     }
+//   }
+// });
