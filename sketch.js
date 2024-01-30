@@ -37,7 +37,7 @@ function preload() {
 
 function setup() {
   frameRate(fr);
-  setVRBackgroundColor(100, 100, 100);
+  setVRBackgroundColor(0, 0, 0);
   //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
@@ -45,11 +45,11 @@ function setup() {
   sat = 100;
   if (type == 1) {
     brt = 100;
-    alph = 35;
+    alph = 255;
     noStroke(0);
   } else {
     brt = 70;
-    alph = 100;
+    alph = 255;
     stroke(0);
   }
 
