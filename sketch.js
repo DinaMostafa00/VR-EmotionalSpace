@@ -59,7 +59,7 @@ function setup() {
 function newArt() {
   array1 = [];
   ped = round(random(8, 25)); // 8 to 25
-  lay = random(4, 30); //4, 40+ takes more processing
+  lay = random(4, 10); //4, 40+ takes more processing
   ang = 360 / ped;
 
   // calculate STARTING hues and points for each layer, starting with outside pedals and going inward, and save them plus directions to array
@@ -107,6 +107,7 @@ function drawMandala(handSize) {
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
+    translate(0, 0, lay * 10); //triall
     let place = (lay - k) * 14;
     let x1N = array1[place + 0];
     let x2N = array1[place + 1];
