@@ -59,7 +59,7 @@ function setup() {
 function newArt() {
   array1 = [];
   ped = round(random(8, 25)); // 8 to 25
-  lay = random(4, 20); //4, 40+ takes more processing
+  lay = random(5, 15); //4, 40+ takes more processing
   ang = 360 / ped;
 
   // calculate STARTING hues and points for each layer, starting with outside pedals and going inward, and save them plus directions to array
