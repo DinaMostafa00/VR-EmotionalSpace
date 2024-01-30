@@ -7,7 +7,7 @@ let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
 let rate = 3; //rate of pedal change 0.5
 let hueyD = 1.4; //rate of color change 1.4
-let fr = 24; //framerate 24
+let fr = 30; //framerate 24
 let chance = 0.1; //chance in 10 of reversal 0.1
 let array1 = [];
 let newArray = [];
@@ -100,7 +100,7 @@ function newArt() {
 function drawMandala(handSize) {
   newArray = [];
   push();
-  translate(500, 500);
+  // translate(500, 500, 0);
 
   // rotateX(frameCount * 0.01);
   // rotateY(frameCount * 0.01);
