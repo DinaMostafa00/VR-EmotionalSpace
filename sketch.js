@@ -107,7 +107,7 @@ function drawMandala(handSize) {
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
-    translate(0, 0, lay * 10); //triall
+    translate(0, 0, lay * 2); //triall
     let place = (lay - k) * 14;
     let x1N = array1[place + 0];
     let x2N = array1[place + 1];
