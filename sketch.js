@@ -45,12 +45,12 @@ function setup() {
   ////the alpha
   sat = 100;
   if (type == 1) {
-    brt = 100;
-    alph = 80;
+    brt = 50;
+    alph = 200;
     noStroke(0);
   } else {
-    brt = 70;
-    alph = 100;
+    brt = 50;
+    alph = 200;
     stroke(0);
   }
 
