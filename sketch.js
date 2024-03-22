@@ -5,7 +5,7 @@
 let player;
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
-let rate = 3; //rate of pedal change 0.5
+let rate = 0.5; //rate of pedal change 0.5
 let hueyD = 1.4; //rate of color change 1.4
 let fr = 30; //framerate 24
 let chance = 0.1; //chance in 10 of reversal 0.1
