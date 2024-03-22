@@ -46,7 +46,7 @@ function setup() {
   sat = 100;
   if (type == 1) {
     brt = 100;
-    alph = 35;
+    alph = 80;
     noStroke(0);
   } else {
     brt = 70;
