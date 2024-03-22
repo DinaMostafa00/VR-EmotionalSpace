@@ -42,14 +42,15 @@ function setup() {
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
 
+  ////the alpha
   sat = 100;
   if (type == 1) {
     brt = 80;
-    alph = 200;
+    alph = 100;
     noStroke(0);
   } else {
     brt = 80;
-    alph = 200;
+    alph = 100;
     stroke(0);
   }
 
@@ -207,7 +208,7 @@ function draw() {
 
 let minMandalaSize = 0.1;
 let maxMandalaSize = 1.0;
-let mandalaSizeIncrement = 0.01;
+let mandalaSizeIncrement = 0.07;
 let increasing = true;
 
 function updateMandalaSize() {
