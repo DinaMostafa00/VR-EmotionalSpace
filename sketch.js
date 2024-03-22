@@ -40,10 +40,10 @@ function setup() {
   setVRBackgroundColor(0, 0, 0);
   //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
-  colorMode(HSB, 360, 50, 20, 50);
+  colorMode(HSB, 360, 50, 80, 50);
 
   ////the alpha
-  sat = 100;
+  sat = 50;
   if (type == 1) {
     brt = 80;
     alph = 200;
