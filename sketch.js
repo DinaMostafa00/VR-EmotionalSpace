@@ -40,7 +40,7 @@ function setup() {
   setVRBackgroundColor(0, 0, 0);
   //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
-  colorMode(HSB, 360, 50, 50, 50);
+  colorMode(HSB, 360, 50, 20, 50);
 
   ////the alpha
   sat = 100;
@@ -207,7 +207,7 @@ function draw() {
 }
 
 let minMandalaSize = 0.2;
-let maxMandalaSize = 8.0;
+let maxMandalaSize = 0.8;
 let mandalaSizeIncrement = 0.009;
 let increasing = true;
 
