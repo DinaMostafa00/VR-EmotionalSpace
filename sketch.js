@@ -5,7 +5,7 @@
 let player;
 let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
-let rate = 0.5; //rate of pedal change 0.5
+let rate = 3; //rate of pedal change 0.5
 let hueyD = 1.4; //rate of color change 1.4
 let fr = 30; //framerate 30
 let chance = 0.1; //chance in 10 of reversal 0.1
@@ -60,7 +60,7 @@ function setup() {
 function newArt() {
   array1 = [];
   ped = round(random(8, 25)); // 8 to 25
-  lay = random(5, 16); //4, 40+ takes more processing
+  lay = random(5, 15); //4, 40+ takes more processing
   ang = 360 / ped;
 
   // calculate STARTING hues and points for each layer, starting with outside pedals and going inward, and save them plus directions to array
