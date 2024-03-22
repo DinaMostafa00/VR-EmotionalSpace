@@ -208,7 +208,7 @@ function draw() {
 
 let minMandalaSize = 0.1;
 let maxMandalaSize = 1.0;
-let mandalaSizeIncrement = 0.1;
+let mandalaSizeIncrement = 0.001;
 let increasing = true;
 
 function updateMandalaSize() {
