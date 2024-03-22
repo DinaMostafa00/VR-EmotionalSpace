@@ -45,12 +45,12 @@ function setup() {
   ////the alpha
   sat = 100;
   if (type == 1) {
-    brt = 80;
-    alph = 100;
+    brt = 100;
+    alph = 150;
     noStroke(0);
   } else {
-    brt = 80;
-    alph = 100;
+    brt = 70;
+    alph = 150;
     stroke(0);
   }
 
@@ -108,7 +108,7 @@ function drawMandala(handSize) {
 
   // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
-    translate(0, 0, lay * 2); //triall
+    translate(0, 0, lay * 10); //triall //////////////////////
     let place = (lay - k) * 14;
     let x1N = array1[place + 0];
     let x2N = array1[place + 1];
