@@ -1,11 +1,18 @@
+////////CITATIONS////////
+// Mandala art video link : https://www.youtube.com/watch?v=k28xNx-Q3ys
+// MP3 track website : https://pixabay.com/sound-effects/search/mp3/
+
+let player;
+let mandalaSize = 0.5;
 let type = 1; //1 for complex see-through, 2 for solid
-let rate = 0.5; //rate of petal change 0.5
+let rate = 3; //rate of pedal change 0.5
 let hueyD = 1.4; //rate of color change 1.4
-let fr = 30; //framerate 24
+let fr = 24; //framerate 30
 let chance = 0.1; //chance in 10 of reversal 0.1
 let array1 = [];
 let newArray = [];
 let paused = false;
+
 let x1D, x2D, y2D, x3D, y3D, x4D;
 let x1,
   x2,
@@ -21,40 +28,38 @@ let x1,
   currR,
   maxY2,
   maxY3,
-  pet,
+  ped,
   lay;
-
-function preload() {
-  createVRCanvas();
-}
 
 function setup() {
   frameRate(fr);
-  let maxSize = min(windowWidth, windowHeight) - 20;
-  createCanvas(maxSize, maxSize);
+  setVRBackgroundColor(0, 0, 0);
+  //   createCanvas(innerWidth, innerHeight);
   angleMode(DEGREES);
   colorMode(HSB, 360, 100, 100, 100);
-  let rMax = width / 2;
+
+  ////the alpha
   sat = 100;
   if (type == 1) {
-    brt = 100;
-    alph = 35;
+    brt = 80;
+    alph = 200;
     noStroke(0);
   } else {
-    brt = 70;
-    alph = 100;
+    brt = 80;
+    alph = 200;
     stroke(0);
   }
+
   newArt();
 }
 
 function newArt() {
   array1 = [];
-  pet = round(random(8, 25)); // 8 to 25
-  lay = random(4, 30); //4, 40+ takes more processing
-  ang = 360 / pet;
+  ped = round(random(8, 25)); // 8 to 25
+  lay = random(5, 15); //4, 40+ takes more processing
+  ang = 360 / ped;
 
-  // calculate STARTING hues and points for each layer, starting with outside petals and going inward, and save them plus directions to array
+  // calculate STARTING hues and points for each layer, starting with outside pedals and going inward, and save them plus directions to array
   for (let j = lay; j > 0; j--) {
     currR = (j / lay) * (width / 2);
     x1 = random(0.35 * currR, 0.45 * currR);
@@ -89,14 +94,17 @@ function newArt() {
   }
 }
 
-function draw() {
+function drawMandala(handSize) {
   newArray = [];
   push();
+  translate(500, 500, 0);
 
-  background(0);
-  // calculate points for each layer, starting with outside petals and going inward
+  // rotateX(frameCount * 0.01);
+  // rotateY(frameCount * 0.01);
+
+  // calculate points for each layer, starting with outside pedals and going inward
   for (let k = lay; k > 0; k--) {
-    translate(0, 0, lay * 2);
+    translate(0, 0, lay * 2); //triall //////////////////////
     let place = (lay - k) * 14;
     let x1N = array1[place + 0];
     let x2N = array1[place + 1];
@@ -167,18 +175,18 @@ function draw() {
       hueyN,
       hueyNd
     );
-    // draw the petals for one layer
-    for (let i = 0; i < pet; i++) {
+    // draw the pedals for one layer
+    for (let i = 0; i < ped; i++) {
       beginShape();
-      curveVertex(x4N, 0);
-      curveVertex(x4N, 0);
-      curveVertex(x3N, y3N);
-      curveVertex(x2N, y2N);
-      curveVertex(x1N, 0);
-      curveVertex(x2N, -y2N);
-      curveVertex(x3N, -y3N);
-      curveVertex(x4N, 0);
-      curveVertex(x4N, 0);
+      curveVertex(x4N * handSize, 0);
+      curveVertex(x4N * handSize, 0);
+      curveVertex(x3N * handSize, y3N * handSize);
+      curveVertex(x2N * handSize, y2N * handSize);
+      curveVertex(x1N * handSize, 0);
+      curveVertex(x2N * handSize, -y2N * handSize);
+      curveVertex(x3N * handSize, -y3N * handSize);
+      curveVertex(x4N * handSize, 0);
+      curveVertex(x4N * handSize, 0);
       endShape();
       rotate(ang);
     }
@@ -186,4 +194,29 @@ function draw() {
   }
   pop();
   array1 = newArray;
+}
+
+function draw() {
+  // translate(0, 0, -700);
+  updateMandalaSize();
+  drawMandala(mandalaSize);
+}
+
+let minMandalaSize = 0.2;
+let maxMandalaSize = 8.0;
+let mandalaSizeIncrement = 0.009;
+let increasing = true;
+
+function updateMandalaSize() {
+  if (increasing) {
+    mandalaSize += mandalaSizeIncrement;
+    if (mandalaSize >= maxMandalaSize) {
+      increasing = false;
+    }
+  } else {
+    mandalaSize -= mandalaSizeIncrement;
+    if (mandalaSize <= minMandalaSize) {
+      increasing = true;
+    }
+  }
 }
