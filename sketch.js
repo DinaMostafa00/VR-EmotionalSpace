@@ -45,11 +45,11 @@ function setup() {
   ////the alpha
   sat = 20;
   if (type == 1) {
-    brt = 80;
+    brt = 50;
     alph = 200;
     noStroke(0);
   } else {
-    brt = 80;
+    brt = 50;
     alph = 200;
     stroke(0);
   }
@@ -206,9 +206,9 @@ function draw() {
   drawMandala(mandalaSize);
 }
 
-let minMandalaSize = 0.1;
-let maxMandalaSize = 0.8;
-let mandalaSizeIncrement = 0.009;
+let minMandalaSize = 0.09;
+let maxMandalaSize = 0.6;
+let mandalaSizeIncrement = 0.006;
 let increasing = true;
 
 function updateMandalaSize() {
